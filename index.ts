@@ -55,6 +55,7 @@ interface PersonInterface {
   age: number;
   isStudent: boolean;
 }
+// type PersonType2 = PersonInterface | null;
 let person4: PersonInterface | null = {
   name: "Ahmet",
   age: 25,
