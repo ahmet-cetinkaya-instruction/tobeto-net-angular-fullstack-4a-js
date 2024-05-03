@@ -206,6 +206,8 @@ database.connect().add(); // Fluent yapısı
 //#endregion
 
 //#region Error Handling
+console.log("-----------------Error Handling-----------------");
+
 try {
   throw new Error("Hata");
 } catch (error) {
@@ -214,6 +216,8 @@ try {
 //#endregion
 
 //#region Keyed Collections
+console.log("-----------------Keyed Collections-----------------");
+
 // Map
 const map = new Map();
 map.set("name", "Ahmet");
@@ -226,4 +230,95 @@ const set = new Set();
 set.add("Ahmet");
 set.add("Ahmet"); // Aynı değeri tekrar eklemeye izin vermez
 console.log(set);
+//#endregion
+
+//#region JSON
+console.log("-----------------JSON-----------------");
+
+const { type } = require("os");
+const package = require("./package.json"); // CommonJS
+console.log(typeof package, package);
+// import package from "./package.json"; // Module // ES6
+for (let key in package) {
+  console.log(key, package[key]);
+}
+//#endregion
+
+//#region Type Conversion
+console.log("-----------------Type Conversion-----------------");
+
+let number3 = 10;
+let string2 = number3.toString();
+console.log(typeof number3, number3, typeof string2, string2);
+
+let number4 = Number.parseInt(string2);
+let number5 = Number.parseFloat(string2);
+console.log(
+  typeof string2,
+  string2,
+  typeof number4,
+  number4,
+  typeof number5,
+  number5
+);
+
+let string3 = String(number5);
+console.log(typeof number5, number5, typeof string3, string3);
+
+let number6 = Number(string3);
+console.log(typeof string3, string3, typeof number6, number6);
+
+let boolean2 = Boolean(number6); // 0, "", null, undefined, NaN, false -> false, diğerleri -> true
+console.log(typeof number6, number6, typeof boolean2, boolean2);
+
+//#endregion
+
+//#region Template Literals
+console.log("-----------------Template Literals-----------------");
+
+let name = "Ahmet";
+let surname = "Yılmaz";
+let fullName = name + " " + surname;
+let fullName2 = `${name} ${surname}`; // *** C#'dan biraz farklı
+console.log(fullName, fullName2);
+//#endregion
+
+//#region OOP
+console.log("-----------------OOP-----------------");
+
+class Human {
+  _name; // Field // *** C#'dan farklı // varsılan public
+  _age; // JS tarafında isimlendirmeyle özel alan olduğu sözel olarak belirtilebilir.
+
+  constructor(name, age) {
+    this._name = name; // Önceden bir field veya property oluşturmaya gerek kalmadan direkt olarak tanımlanabilir.
+    this._age = age;
+  }
+
+  getName() {
+    return this._name;
+  }
+}
+
+class Person extends Human {
+  // Kalıtım
+  constructor(name, age, work) {
+    super(name, age); // super: base sınıfı işaret eder // super() -> base sınıfın constructor'ını çalıştırır.
+    this._work = work; // this: instance referansı işaret eder
+  }
+
+  // Override: base sınıftaki metodu ezer
+  getName() {
+    console.log("Person getName");
+    return super.getName();
+  }
+
+  getWork() {
+    return this._work;
+  }
+}
+
+const person = new Person("Ahmet", 25); // yeni bir nesne/object instance oluşturuldu.
+console.log("person.getName()", person.getName());
+
 //#endregion
