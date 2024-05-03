@@ -111,53 +111,95 @@ if (number > 5) {
 console.log("-----------------Switch-Case-----------------");
 let day = 1;
 switch (day) {
-    case 1:
-        console.log("Pazartesi");
-        break;
-    case 2:
-        console.log("Salı");
-        break;
+  case 1:
+    console.log("Pazartesi");
+    break;
+  case 2:
+    console.log("Salı");
+    break;
 }
 
 // For
 console.log("-----------------For-----------------");
 for (let i = 0; i < 5; i++) {
-    console.log(i);
+  console.log(i);
 }
 
 // While
 console.log("-----------------While-----------------");
 let i = 0;
 while (i < 5) {
-    console.log(i);
-    i++;
+  console.log(i);
+  i++;
 }
 
 console.log("-----------------Do-While-----------------");
 do {
-    console.log(i);
-    i++;
+  console.log(i);
+  i++;
 } while (i < 5);
 
 // For-In // *** C#'dan farklı olarak
 console.log("-----------------For-In-----------------");
 let object2 = {
-    name: "Ahmet",
-    age: 25,
-    isStudent: true,
+  name: "Ahmet",
+  age: 25,
+  isStudent: true,
 };
-for(let key in object2) {
-    console.log(key, object2[key]);
+for (let key in object2) {
+  console.log(key, object2[key]);
 }
 
 // For-Of // C# foreach
 console.log("-----------------For-Of-----------------");
 let array2 = [1, 2, 3, 4, 5];
-for(let value of array2) {
-    console.log(value);
+for (let value of array2) {
+  console.log(value);
 }
-array2.forEach(value => {
-    console.log(value);
-})
+array2.forEach((value) => {
+  console.log(value);
+});
+
+//#endregion
+
+//#region Functions
+// *** C#'dan farklı
+console.log("-----------------Functions-----------------");
+
+function sum(a, b = 10) {
+  return a + b;
+  console.log("Bu satır çalışmaz");
+}
+console.log(sum(5), sum(5, 15));
+
+const database = {
+  host: "localhost",
+  port: 3306,
+  connect: function () {
+    console.log("Connected");
+
+    const disconnect = () => {
+      console.log("Disconnected");
+    };
+
+    return { // Nested Function
+      add: () => {
+        console.log("Added");
+        disconnect();
+      },
+      update: function () {
+        console.log("Updated");
+        disconnect();
+      },
+      delete: () => {
+        console.log("Deleted");
+        disconnect();
+      },
+    };
+  },
+};
+console.log(database);
+console.log(database.host, database.port);
+database.connect().add(); // Fluent yapısı
 
 //#endregion
