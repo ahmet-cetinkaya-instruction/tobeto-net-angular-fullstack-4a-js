@@ -4,6 +4,7 @@
     "build": "tsc index.ts"
   },
   "devDependencies": {
+    "@types/node": "^20.12.8",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.5"
   }
