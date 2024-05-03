@@ -203,3 +203,11 @@ console.log(database.host, database.port);
 database.connect().add(); // Fluent yapısı
 
 //#endregion
+
+//#region Error Handling
+try {
+    throw new Error("Hata");
+} catch (error) {
+    console.error("catch: ", error);
+}
+//#endregion
