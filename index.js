@@ -182,7 +182,8 @@ const database = {
       console.log("Disconnected");
     };
 
-    return { // Nested Function
+    return {
+      // Nested Function
       add: () => {
         console.log("Added");
         disconnect();
@@ -206,8 +207,23 @@ database.connect().add(); // Fluent yapısı
 
 //#region Error Handling
 try {
-    throw new Error("Hata");
+  throw new Error("Hata");
 } catch (error) {
-    console.error("catch: ", error);
+  console.error("catch: ", error);
 }
+//#endregion
+
+//#region Keyed Collections
+// Map
+const map = new Map();
+map.set("name", "Ahmet");
+map.set(1, "One");
+// Objelerden farklı olarak key kısmı her türlü değer olabilir.
+// Objelerde key sadece string olabilir.
+
+// Set
+const set = new Set();
+set.add("Ahmet");
+set.add("Ahmet"); // Aynı değeri tekrar eklemeye izin vermez
+console.log(set);
 //#endregion
