@@ -1,6 +1,7 @@
 console.log("Helloworld");
 
 //#region Variables
+// *** C#'dan farklı
 console.log("-----------------Variables-----------------");
 
 let number1 = 10;
@@ -66,11 +67,11 @@ console.log("-----------------Operators-----------------");
 
 // = = // Tip dönüşümü yapar
 console.log('"1" == 1', "1" == 1); // true
-// = = = // Tip dönüşümü yapmaz // Strict Equality // Tavsiye edilen
+// = = = // Tip dönüşümü yapmaz // Strict Equality // Tavsiye edilen  // *** C#'dan farklı olarak
 console.log('"1" === 1', "1" === 1); // false
 // ! = // Tip dönüşümü yapar
 console.log('"1" != 1', "1" != 1); // false
-// ! = = // Tip dönüşümü yapmaz // Strict Inequality // Tavsiye edilen
+// ! = = // Tip dönüşümü yapmaz // Strict Inequality // Tavsiye edilen  // *** C#'dan farklı olarak
 console.log('"1" !== 1', "1" !== 1); // true
 
 // Mantıksal Operatörler
@@ -79,16 +80,84 @@ console.log('"1" !== 1', "1" !== 1); // true
 // Ternary Operatör
 // ? :
 const ternary = 5 > 3 ? "5 büyüktür 3" : "5 küçüktür 3";
-console.log('ternary: ', ternary);
+console.log("ternary: ", ternary);
 
 // Nullish Coalescing Operator
 // ?? : null veya undefined ise sağdaki değeri alır
 let nullishValue = null;
 let nullishCoalescing = nullishValue ?? "Default Value";
-console.log('nullishCoalescing: ', nullishCoalescing);
+console.log("nullishCoalescing: ", nullishCoalescing);
 
-// || : false (undefined, null, 0, "", false) ise sağdaki değeri alır
+// || : false (undefined, null, 0, "", false) ise sağdaki değeri alır  // *** C#'dan farklı olarak
 let orValue = nullishValue || "Default Value";
-console.log('orValue: ', orValue);
+console.log("orValue: ", orValue);
+
+//#endregion
+
+//#region Control Structures
+
+// If-Else
+console.log("-----------------If-Else-----------------");
+let number = 10;
+if (number > 5) {
+  console.log("Sayı 5'den büyük");
+} else if (number < 5) {
+  console.log("Sayı 5'den küçük");
+} else {
+  console.log("Sayı 5'e eşit");
+}
+
+// Switch-Case
+console.log("-----------------Switch-Case-----------------");
+let day = 1;
+switch (day) {
+    case 1:
+        console.log("Pazartesi");
+        break;
+    case 2:
+        console.log("Salı");
+        break;
+}
+
+// For
+console.log("-----------------For-----------------");
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// While
+console.log("-----------------While-----------------");
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+
+console.log("-----------------Do-While-----------------");
+do {
+    console.log(i);
+    i++;
+} while (i < 5);
+
+// For-In // *** C#'dan farklı olarak
+console.log("-----------------For-In-----------------");
+let object2 = {
+    name: "Ahmet",
+    age: 25,
+    isStudent: true,
+};
+for(let key in object2) {
+    console.log(key, object2[key]);
+}
+
+// For-Of // C# foreach
+console.log("-----------------For-Of-----------------");
+let array2 = [1, 2, 3, 4, 5];
+for(let value of array2) {
+    console.log(value);
+}
+array2.forEach(value => {
+    console.log(value);
+})
 
 //#endregion
