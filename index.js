@@ -322,3 +322,57 @@ const person = new Person("Ahmet", 25); // yeni bir nesne/object instance oluşt
 console.log("person.getName()", person.getName());
 
 //#endregion
+
+//#region Destructing
+// *** C#'dan farklı
+// Bir objenin veya array'in içindeki elemanları ayrı ayrı değişkenlere atamak için kullanılır.
+console.log("-----------------Destructing-----------------");
+
+const person2 = {
+  name: "Ahmet",
+  age: 25,
+  work: "Developer",
+};
+// const personName = person2.name;
+// const age = person2.age;
+const { name: personName, age } = person2;
+console.log(personName, age);
+
+const numbers = [1, 2, 3, 4, 5];
+// const number7 = numbers[0];
+// const number8 = numbers[1];
+// const restNumbers = numbers.slice(2);
+const [number7, number8, ...restNumbers] = numbers;
+console.log("[number7, number8, ...rest] = numbers", number7, number8, restNumbers);
+
+//#endregion
+
+//#region Rest/Spread Operator
+// *** C#'dan farklı
+// Rest: Parametrelerin toplanması, bir obje veya array'in içindeki elemanları bir araya getirmek için kullanılır.
+// Spread: Parametrelerin ayrılması, bir obje veya array'in içindeki elemanları tek tek ayrıştırmak için kullanılır.
+console.log("-----------------Rest/Spread Operator-----------------");
+
+function sum2(...numbers) { // Rest // C#'daki params
+    return numbers.reduce((total, number) => total + number, 0);
+}
+console.log("sum2(1, 2, 3, 4, 5)", sum2(1, 2, 3, 4, 5));
+
+const numbers2 = [1, 2, 3, 4, 5];
+console.log("sum2(...numbers2)", sum2(...numbers2)); // Spread
+
+const numbers3 = [0, ...numbers2, 6];
+console.log("numbers3", numbers3);
+
+console.log("person2", person2);
+const person3 = {
+    // name: person2.name,
+    // age: person2.age,
+    // work: person2.work,
+    ...person2, // Spread
+    age: 30,
+    surname: "Yılmaz",
+};
+console.log("person3", person3);
+
+//#endregion
