@@ -51,3 +51,44 @@ function func1() {
 console.log(typeof func1, func1, func1());
 
 //#endregion
+
+//#region Operators
+console.log("-----------------Operators-----------------");
+
+// Aritmetik Operatörler
+// +, -, *, /, %, **, ++, --
+
+// Atama Operatörleri
+//. =, +=, -=, *=, /=, %=, **=
+
+// Karşılaştırma Operatörleri
+// ==, ===, !=, !==, >, <, >=, <=
+
+// = = // Tip dönüşümü yapar
+console.log('"1" == 1', "1" == 1); // true
+// = = = // Tip dönüşümü yapmaz // Strict Equality // Tavsiye edilen
+console.log('"1" === 1', "1" === 1); // false
+// ! = // Tip dönüşümü yapar
+console.log('"1" != 1', "1" != 1); // false
+// ! = = // Tip dönüşümü yapmaz // Strict Inequality // Tavsiye edilen
+console.log('"1" !== 1', "1" !== 1); // true
+
+// Mantıksal Operatörler
+// &&, ||, !
+
+// Ternary Operatör
+// ? :
+const ternary = 5 > 3 ? "5 büyüktür 3" : "5 küçüktür 3";
+console.log('ternary: ', ternary);
+
+// Nullish Coalescing Operator
+// ?? : null veya undefined ise sağdaki değeri alır
+let nullishValue = null;
+let nullishCoalescing = nullishValue ?? "Default Value";
+console.log('nullishCoalescing: ', nullishCoalescing);
+
+// || : false (undefined, null, 0, "", false) ise sağdaki değeri alır
+let orValue = nullishValue || "Default Value";
+console.log('orValue: ', orValue);
+
+//#endregion
